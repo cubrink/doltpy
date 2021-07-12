@@ -374,8 +374,7 @@ class DoltSQLServerContext(DoltSQLContext):
 
     def __enter__(self):
         if not self.dolt.status().is_clean:
-            # TODO better error messages
-            raise ValueError("DoltSQLServerManager does not support ")
+            raise ValueError("Dolt status is not clean.")
         if self.server_config.branch:
             current_branch, _ = self.dolt.branch()
             if current_branch.name != self.server_config.branch:
