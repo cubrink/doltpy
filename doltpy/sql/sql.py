@@ -5,6 +5,7 @@ import logging
 import math
 import os
 import datetime
+import subprocess
 
 # from doltpy.shared import SQL_LOG_FILE
 from subprocess import STDOUT, Popen
