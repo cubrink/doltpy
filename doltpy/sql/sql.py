@@ -403,12 +403,10 @@ class DoltSQLServerContext(DoltSQLContext):
             if self.server is not None:
                 logger.warning("Server already running")
 
-            log_file = SQL_LOG_FILE or os.path.join(self.dolt.repo_dir, "mysql_server.log")
-
             proc = Popen(
                 args=["dolt"] + server_args,
                 cwd=self.dolt.repo_dir,
-                stdout=open(log_file, "w"),
+                stdout=subprocess.DEVNULL,
                 stderr=STDOUT,
             )
 
