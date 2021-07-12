@@ -5,10 +5,9 @@ import logging
 import math
 import os
 import datetime
-import subprocess
 
 # from doltpy.shared import SQL_LOG_FILE
-from subprocess import STDOUT, Popen
+from subprocess import STDOUT, Popen, DEVNULL
 from typing import Any, Dict, Iterable, List, Mapping, Union, Optional
 
 import pandas as pd  # type: ignore
@@ -406,7 +405,7 @@ class DoltSQLServerContext(DoltSQLContext):
             proc = Popen(
                 args=["dolt"] + server_args,
                 cwd=self.dolt.repo_dir,
-                stdout=subprocess.DEVNULL,
+                stdout=DEVNULL,
                 stderr=STDOUT,
             )
 
